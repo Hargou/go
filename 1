@@ -1,0 +1,18 @@
+func main() {
+    sequence := "TGCATGAT"
+    k := 3
+    kmerCounts := countkmers(sequence, k)
+    fmt.Println("Counts of", k, "-mers in sequence:", kmerCounts)
+}
+
+func countkmers(sequence string, k int) map[string]int {
+    kmerCounts := make(map[string]int)
+
+    for i := 0; i <= len(sequence)-k; i++ {
+        kmer := sequence[i : i+k]
+        kmerCounts[kmer]++
+    }
+
+    return kmerCounts
+}
+
